@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عيادة الأسنان المتميزة</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#57B5E7',secondary:'#8DD3C7'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+        .hero-section {
+            background-image: url('https://readdy.ai/api/search-image?query=modern%20dental%20clinic%20interior%20with%20blue%20and%20white%20color%20scheme%2C%20clean%20and%20professional%20environment%2C%20dental%20chair%20and%20equipment%20visible%2C%20soft%20lighting%2C%20minimalist%20design%2C%20high-end%20medical%20facility%2C%20comfortable%20waiting%20area&width=1920&height=1080&seq=1&orientation=landscape');
+            background-size: cover;
+            background-position: center;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(87, 181, 231, 0.2);
+        }
+        .team-card:hover .team-info {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .team-info {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #57B5E7;
+            cursor: pointer;
+        }
+        input[type="checkbox"].custom-checkbox {
+            display: none;
+        }
+        .custom-checkbox-label {
+            position: relative;
+            padding-right: 30px;
+            cursor: pointer;
+        }
+        .custom-checkbox-label:before {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #57B5E7;
+            border-radius: 4px;
+            background-color: white;
+        }
+        .custom-checkbox:checked + .custom-checkbox-label:before {
+            background-color: #57B5E7;
+        }
+        .custom-checkbox:checked + .custom-checkbox-label:after {
+            content: "";
+            position: absolute;
+            right: 7px;
+            top: 3px;
+            width: 6px;
+            height: 12px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #57B5E7;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        .before-after-slider {
+            position: relative;
+            overflow: hidden;
+        }
+        .slider-before, .slider-after {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+        }
+        .slider-before {
+            left: 0;
+            z-index: 1;
+            width: 50%;
+        }
+        .slider-after {
+            right: 0;
+            z-index: 0;
+        }
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: white;
+            z-index: 2;
+            cursor: ew-resize;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+        .slider-handle:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+        .slider-handle:before {
+            content: "⟷";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #57B5E7;
+            font-size: 16px;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- شريط معلومات علوي -->
+    <div class="bg-gray-100 py-2">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <div class="flex items-center">
+                    <div class="w-5 h-5 flex items-center justify-center text-primary">
+                        <i class="ri-phone-line"></i>
+                    </div>
+                    <span class="mr-2 text-sm">+966 12 345 6789</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-5 h-5 flex items-center justify-center text-primary">
+                        <i class="ri-mail-line"></i>
+                    </div>
+                    <span class="mr-2 text-sm">info@dentalclinic.com</span>
+                </div>
+            </div>
+            <div class="flex items-center">
+                <span class="text-sm">مواعيد العمل: السبت - الخميس، 9 صباحاً - 9 مساءً</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- الهيدر والقائمة -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <nav class="hidden md:flex space-x-8 space-x-reverse">
+                    <a href="#" class="text-gray-700 hover:text-primary font-medium transition-colors">الرئيسية</a>
+                    <a href="#services" class="text-gray-700 hover:text-primary font-medium transition-colors">خدماتنا</a>
+                    <a href="#technology" class="text-gray-700 hover:text-primary font-medium transition-colors">التقنيات</a>
+                    <a href="#cases" class="text-gray-700 hover:text-primary font-medium transition-colors">الحالات</a>
+                    <a href="#team" class="text-gray-700 hover:text-primary font-medium transition-colors">فريقنا</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary font-medium transition-colors">اتصل بنا</a>
+                </nav>
+                
+                <div class="font-['Pacifico'] text-3xl text-primary">
+                    <span>DentalCare</span>
+                </div>
+                
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <button class="bg-primary text-white px-6 py-2 rounded-button hover:bg-opacity-90 transition-all whitespace-nowrap">
+                        احجز موعداً
+                    </button>
+                    <div class="md:hidden w-10 h-10 flex items-center justify-center cursor-pointer">
+                        <i class="ri-menu-line text-xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- قسم الترحيب الرئيسي -->
+    <section class="hero-section relative py-20 md:py-32">
+        <div class="absolute inset-0 bg-gradient-to-l from-transparent to-white/90"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="w-full md:w-1/2 lg:w-2/5">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">ابتسامة مشرقة تعكس ثقتك</h1>
+                <p class="text-lg text-gray-700 mb-8">نقدم لك أحدث التقنيات وأفضل الخدمات في مجال طب الأسنان لمنحك ابتسامة صحية وجميلة تدوم مدى الحياة.</p>
+                <div class="flex space-x-4 space-x-reverse">
+                    <button class="bg-primary text-white px-8 py-3 rounded-button hover:bg-opacity-90 transition-all whitespace-nowrap font-medium">
+                        احجز موعداً الآن
+                    </button>
+                    <button class="border-2 border-primary text-primary px-8 py-3 rounded-button hover:bg-primary hover:text-white transition-all whitespace-nowrap font-medium">
+                        تعرف علينا
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الإحصائيات -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">+15</div>
+                    <div class="text-gray-600">سنوات خبرة</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">+5000</div>
+                    <div class="text-gray-600">مريض سعيد</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">+12</div>
+                    <div class="text-gray-600">طبيب متخصص</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">+20</div>
+                    <div class="text-gray-600">جائزة تميز</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الخدمات -->
+    <section id="services" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">خدماتنا المتميزة</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">نقدم مجموعة شاملة من خدمات طب الأسنان المتطورة التي تلبي جميع احتياجاتك بأعلى معايير الجودة والرعاية</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card bg-white p-8 rounded-lg shadow-md transition-all duration-300">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full mb-6">
+                        <i class="ri-health-book-line text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">تجميل الأسنان</h3>
+                    <p class="text-gray-600 mb-4">تقنيات متطورة لتحسين مظهر ابتسامتك من خلال الفينير، التبييض، وتقويم الأسنان الشفاف.</p>
+                    <a href="#" class="text-primary font-medium hover:underline flex items-center">
+                        المزيد
+                        <i class="ri-arrow-left-line mr-1"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card bg-white p-8 rounded-lg shadow-md transition-all duration-300">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full mb-6">
+                        <i class="ri-surgical-mask-line text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">زراعة الأسنان</h3>
+                    <p class="text-gray-600 mb-4">حلول دائمة وطبيعية لاستبدال الأسنان المفقودة باستخدام أحدث تقنيات زراعة الأسنان.</p>
+                    <a href="#" class="text-primary font-medium hover:underline flex items-center">
+                        المزيد
+                        <i class="ri-arrow-left-line mr-1"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card bg-white p-8 rounded-lg shadow-md transition-all duration-300">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full mb-6">
+                        <i class="ri-heart-pulse-line text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">علاج جذور الأسنان</h3>
+                    <p class="text-gray-600 mb-4">علاجات متخصصة ودقيقة لإنقاذ الأسنان المتضررة والحفاظ على صحة الفم.</p>
+                    <a href="#" class="text-primary font-medium hover:underline flex items-center">
+                        المزيد
+                        <i class="ri-arrow-left-line mr-1"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card bg-white p-8 rounded-lg shadow-md transition-all duration-300">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full mb-6">
+                        <i class="ri-mental-health-line text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">تقويم الأسنان</h3>
+                    <p class="text-gray-600 mb-4">خيارات متعددة لتقويم الأسنان تشمل التقويم التقليدي، الشفاف، واللساني لجميع الأعمار.</p>
+                    <a href="#" class="text-primary font-medium hover:underline flex items-center">
+                        المزيد
+                        <i class="ri-arrow-left-line mr-1"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card bg-white p-8 rounded-lg shadow-md transition-all duration-300">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full mb-6">
+                        <i class="ri-psychotherapy-line text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">طب أسنان الأطفال</h3>
+                    <p class="text-gray-600 mb-4">رعاية خاصة للأطفال في بيئة مريحة وودية مع تركيز على الوقاية والتعليم.</p>
+                    <a href="#" class="text-primary font-medium hover:underline flex items-center">
+                        المزيد
+                        <i class="ri-arrow-left-line mr-1"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card bg-white p-8 rounded-lg shadow-md transition-all duration-300">
+                    <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full mb-6">
+                        <i class="ri-microscope-line text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">جراحة الفم والوجه والفكين</h3>
+                    <p class="text-gray-600 mb-4">إجراءات جراحية متقدمة لعلاج مشاكل الفم والوجه والفكين بدقة وكفاءة عالية.</p>
+                    <a href="#" class="text-primary font-medium hover:underline flex items-center">
+                        المزيد
+                        <i class="ri-arrow-left-line mr-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التقنيات والمعدات -->
+    <section id="technology" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">أحدث التقنيات والمعدات</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">نستخدم أحدث التقنيات والمعدات المتطورة في مجال طب الأسنان لضمان أفضل النتائج وتجربة علاجية مريحة</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-64 bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=modern%20dental%20CAD%2FCAM%20technology%2C%20digital%20dental%20scanner%2C%20high-tech%20dental%20equipment%2C%20blue%20and%20white%20color%20scheme%2C%20clean%20medical%20environment%2C%20professional%20dental%20laboratory&width=600&height=400&seq=2&orientation=landscape')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">تقنية CAD/CAM</h3>
+                        <p class="text-gray-600 mb-4">تقنية متطورة تتيح تصميم وتصنيع التيجان والجسور والقشور الخزفية بدقة عالية في جلسة واحدة.</p>
+                        <button class="text-primary font-medium hover:underline flex items-center">
+                            تعرف على المزيد
+                            <i class="ri-arrow-left-line mr-1"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-64 bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=3D%20dental%20imaging%20technology%2C%20cone%20beam%20CT%20scanner%20for%20dentistry%2C%20digital%20dental%20X-ray%20machine%2C%20high-tech%20dental%20diagnostic%20equipment%2C%20blue%20and%20white%20color%20scheme%2C%20clean%20medical%20environment&width=600&height=400&seq=3&orientation=landscape')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">التصوير ثلاثي الأبعاد</h3>
+                        <p class="text-gray-600 mb-4">أنظمة تصوير متقدمة توفر صوراً دقيقة ثلاثية الأبعاد للفم والأسنان والفكين لتشخيص أدق وعلاج أفضل.</p>
+                        <button class="text-primary font-medium hover:underline flex items-center">
+                            تعرف على المزيد
+                            <i class="ri-arrow-left-line mr-1"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-64 bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=dental%20laser%20technology%2C%20modern%20laser%20dental%20treatment%2C%20advanced%20dental%20equipment%2C%20painless%20dental%20procedures%2C%20blue%20and%20white%20color%20scheme%2C%20clean%20medical%20environment&width=600&height=400&seq=4&orientation=landscape')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">علاج الليزر</h3>
+                        <p class="text-gray-600 mb-4">تقنيات الليزر المتطورة للعلاجات الدقيقة بأقل ألم وأسرع وقت للشفاء في علاج اللثة والأنسجة الرخوة.</p>
+                        <button class="text-primary font-medium hover:underline flex items-center">
+                            تعرف على المزيد
+                            <i class="ri-arrow-left-line mr-1"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-64 bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=digital%20smile%20design%20technology%2C%20virtual%20smile%20makeover%2C%20computer-aided%20dental%20aesthetics%2C%20dental%20cosmetic%20planning%20software%2C%20blue%20and%20white%20color%20scheme%2C%20clean%20medical%20environment&width=600&height=400&seq=5&orientation=landscape')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">تصميم الابتسامة الرقمي</h3>
+                        <p class="text-gray-600 mb-4">برامج متطورة تتيح تصميم ابتسامتك المثالية قبل البدء بالعلاج ورؤية النتائج المتوقعة بشكل واقعي.</p>
+                        <button class="text-primary font-medium hover:underline flex items-center">
+                            تعرف على المزيد
+                            <i class="ri-arrow-left-line mr-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الحالات والنتائج -->
+    <section id="cases" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">حالات وإنجازات</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">شاهد التحول الملحوظ في ابتسامات مرضانا بعد العلاج في عيادتنا</p>
+            </div>
+            
+            <div class="mb-8">
+                <div class="flex justify-center space-x-4 space-x-reverse mb-8">
+                    <button class="px-6 py-2 rounded-full bg-primary text-white whitespace-nowrap">جميع الحالات</button>
+                    <button class="px-6 py-2 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 whitespace-nowrap">تجميل الأسنان</button>
+                    <button class="px-6 py-2 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 whitespace-nowrap">زراعة الأسنان</button>
+                    <button class="px-6 py-2 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 whitespace-nowrap">تقويم الأسنان</button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-80 relative before-after-slider">
+                        <div class="slider-before" style="background-image: url('https://readdy.ai/api/search-image?query=before%20dental%20treatment%2C%20yellowed%20and%20misaligned%20teeth%2C%20dental%20problems%2C%20unhealthy%20smile%2C%20realistic%20dental%20photo&width=600&height=400&seq=6&orientation=landscape')"></div>
+                        <div class="slider-after" style="background-image: url('https://readdy.ai/api/search-image?query=after%20dental%20treatment%2C%20perfect%20white%20aligned%20teeth%2C%20beautiful%20healthy%20smile%2C%20dental%20veneers%20result%2C%20realistic%20dental%20photo&width=600&height=400&seq=7&orientation=landscape')"></div>
+                        <div class="slider-handle"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">تجميل الأسنان بالفينير</h3>
+                        <p class="text-gray-600">تحسين شكل ولون الأسنان باستخدام قشور الفينير الخزفية لتحقيق ابتسامة مثالية.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-80 relative before-after-slider">
+                        <div class="slider-before" style="background-image: url('https://readdy.ai/api/search-image?query=before%20dental%20implant%2C%20missing%20teeth%2C%20gap%20in%20smile%2C%20dental%20problem%2C%20realistic%20dental%20photo&width=600&height=400&seq=8&orientation=landscape')"></div>
+                        <div class="slider-after" style="background-image: url('https://readdy.ai/api/search-image?query=after%20dental%20implant%2C%20complete%20smile%20with%20dental%20implants%2C%20natural%20looking%20teeth%20replacement%2C%20perfect%20dental%20restoration%2C%20realistic%20dental%20photo&width=600&height=400&seq=9&orientation=landscape')"></div>
+                        <div class="slider-handle"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">زراعة الأسنان</h3>
+                        <p class="text-gray-600">استبدال الأسنان المفقودة بزراعة دائمة تبدو وتعمل مثل الأسنان الطبيعية.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-80 relative before-after-slider">
+                        <div class="slider-before" style="background-image: url('https://readdy.ai/api/search-image?query=before%20orthodontic%20treatment%2C%20crooked%20misaligned%20teeth%2C%20dental%20malocclusion%2C%20crowded%20teeth%2C%20realistic%20dental%20photo&width=600&height=400&seq=10&orientation=landscape')"></div>
+                        <div class="slider-after" style="background-image: url('https://readdy.ai/api/search-image?query=after%20orthodontic%20treatment%2C%20perfectly%20aligned%20teeth%2C%20straight%20beautiful%20smile%2C%20successful%20braces%20result%2C%20realistic%20dental%20photo&width=600&height=400&seq=11&orientation=landscape')"></div>
+                        <div class="slider-handle"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">تقويم الأسنان الشفاف</h3>
+                        <p class="text-gray-600">تصحيح تموضع الأسنان باستخدام تقويم شفاف غير مرئي للحصول على ابتسامة متناسقة.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-80 relative before-after-slider">
+                        <div class="slider-before" style="background-image: url('https://readdy.ai/api/search-image?query=before%20teeth%20whitening%2C%20yellowed%20stained%20teeth%2C%20discolored%20smile%2C%20dental%20stains%2C%20realistic%20dental%20photo&width=600&height=400&seq=12&orientation=landscape')"></div>
+                        <div class="slider-after" style="background-image: url('https://readdy.ai/api/search-image?query=after%20teeth%20whitening%2C%20bright%20white%20teeth%2C%20radiant%20smile%2C%20professional%20whitening%20result%2C%20realistic%20dental%20photo&width=600&height=400&seq=13&orientation=landscape')"></div>
+                        <div class="slider-handle"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">تبييض الأسنان</h3>
+                        <p class="text-gray-600">تفتيح لون الأسنان بتقنيات آمنة وفعالة للحصول على ابتسامة أكثر إشراقاً.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الفريق الطبي -->
+    <section id="team" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">فريقنا الطبي المتميز</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">نخبة من أطباء الأسنان ذوي الخبرة والكفاءة العالية لتقديم أفضل رعاية لصحة أسنانك</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="team-card bg-white rounded-lg overflow-hidden shadow-md relative">
+                    <div class="h-80 bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=professional%20male%20dentist%20in%20white%20coat%2C%20middle%20eastern%20appearance%2C%20confident%20pose%2C%20dental%20clinic%20background%2C%20blue%20and%20white%20color%20scheme%2C%20professional%20portrait&width=500&height=600&seq=14&orientation=portrait')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1">د. أحمد الحارثي</h3>
+                        <p class="text-primary mb-3">استشاري جراحة الفم والأسنان</p>
+                        <p class="text-gray-600 text-sm mb-4">خبرة 15 عاماً في مجال جراحة وزراعة الأسنان، حاصل على شهادة البورد الأمريكي.</p>
+                        <div class="flex space-x-3 space-x-reverse">
+                            <a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-primary hover:text-white transition-colors">
+                                <i class="ri-facebook-fill"></i>
+                            </a>
+                            <a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-primary hover:text-white transition-colors">
+                                <i class="ri-twitter-x-fill"></i>
+                            </a>
+                            <a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-primary hover:text-white transition-colors">
+                                <i class="ri-linkedin-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card bg-white rounded-lg overflow-hidden shadow-md relative">
+                    <div class="h-80 bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=professional%20female%20dentist%20in%20white%20coat%2C%20middle%20eastern%20appearance%2C%20confident%20pose%2C%20dental%20clinic%20background%2C%20blue%20and%20white%20color%20scheme%2C%20professional%20portrait&width=500&height=600&seq=15&orientation=portrait')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1">د. سارة القحطاني</h3>
+                        <p class="text-primary mb-3">أخصائية تجميل وتقويم الأسنان</p>
+                        <p class="text-gray-600 text-sm mb-4">متخصصة في تجميل الأسنان وابتسامة هوليود، حاصلة على شهادة من جامعة بوسطن.</p>
+                        <div class="flex space-x-3 space-x-reverse">
+                            <a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-primary hover:text-white transition-colors">
+                                <i class="ri-facebook-fill"></i>
+                            </a>
+                            <a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-primary hover:text-white transition-colors">
+                                <i class="ri-twitter-x-fill"></i>
+                            </a>
+                            <a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-primary hover:text-white transition-colors">
+                                <i class="ri-linkedin-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card bg-white rounded-lg overflow-hidden shadow-md relative">
+                    <div class="h-80 bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=professional%20male%20dentist%20in%20white%20coat%2C%20middle%20eastern%20appearance%2C%20confident%20pose%2C%20dental%20clinic%20background%2C%20blue%20and%20white%20color%20scheme%2C%20professional%20portrait&width=500&height=600&seq=16&orientation=portrait')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1">د. خالد العتيبي</h3>
+                        <p class="text-primary mb-3">أخصائي علاج جذور الأسنان</p>
+                        <p class="text-gray-600 text-sm mb-4">خبير في علاج جذور الأسنان باستخدام المجهر الإلكتروني، حاصل على دكتوراه من جامعة لندن.</p>
+                        <div class="flex space-x-3 space-x-reverse">
+                            <a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-primary hover:text-white transition-colors">
+                                <i class="ri-facebook-fill"></i>
+                            </a>
+                            <a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-primary hover:text-white transition-colors">
+                                <i class="ri-twitter-x-fill"></i>
+                            </a>
+                            <a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-primary hover:text-white transition-colors">
+                                <i class="ri-linkedin-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم حجز المواعيد -->
+    <section class="py-16 bg-primary/5">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="flex flex-col md:flex-row">
+                    <div class="w-full md:w-1/2 p-8 md:p-10">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">احجز موعدك الآن</h2>
+                        <form>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-medium mb-2">الاسم الكامل</label>
+                                <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="أدخل اسمك الكامل">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-medium mb-2">رقم الهاتف</label>
+                                <input type="tel" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="05xxxxxxxx">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-medium mb-2">البريد الإلكتروني</label>
+                                <input type="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="example@email.com">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-medium mb-2">نوع الخدمة</label>
+                                <div class="relative">
+                                    <select class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary appearance-none pr-8">
+                                        <option value="">اختر الخدمة</option>
+                                        <option value="cosmetic">تجميل الأسنان</option>
+                                        <option value="implant">زراعة الأسنان</option>
+                                        <option value="root">علاج جذور الأسنان</option>
+                                        <option value="orthodontic">تقويم الأسنان</option>
+                                        <option value="pediatric">طب أسنان الأطفال</option>
+                                        <option value="surgery">جراحة الفم والوجه والفكين</option>
+                                    </select>
+                                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center px-3 text-gray-700">
+                                        <i class="ri-arrow-down-s-line"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-medium mb-2">التاريخ المفضل</label>
+                                <input type="date" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-gray-700 text-sm font-medium mb-2">ملاحظات إضافية</label>
+                                <textarea class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" rows="3" placeholder="أي معلومات إضافية تود إخبارنا بها"></textarea>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="custom-checkbox" id="terms">
+                                    <span class="custom-checkbox-label">أوافق على سياسة الخصوصية وشروط الاستخدام</span>
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-primary text-white py-3 rounded-button hover:bg-opacity-90 transition-all font-medium whitespace-nowrap">
+                                تأكيد الحجز
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="w-full md:w-1/2 bg-primary/10 p-8 md:p-10">
+                        <h3 class="text-xl font-bold text-gray-900 mb-6">مواعيد العمل</h3>
+                        
+                        <div class="space-y-3 mb-8">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-700">السبت - الأربعاء</span>
+                                <span class="font-medium">9:00 صباحاً - 9:00 مساءً</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-700">الخميس</span>
+                                <span class="font-medium">9:00 صباحاً - 6:00 مساءً</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-700">الجمعة</span>
+                                <span class="font-medium">مغلق</span>
+                            </div>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-gray-900 mb-6">معلومات التواصل</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 flex items-center justify-center bg-primary/20 rounded-full mt-1">
+                                    <i class="ri-map-pin-line text-primary"></i>
+                                </div>
+                                <div class="mr-4">
+                                    <h4 class="font-medium mb-1">العنوان</h4>
+                                    <p class="text-gray-600">شارع الأمير سلطان، حي الخالدية، جدة، المملكة العربية السعودية</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 flex items-center justify-center bg-primary/20 rounded-full mt-1">
+                                    <i class="ri-phone-line text-primary"></i>
+                                </div>
+                                <div class="mr-4">
+                                    <h4 class="font-medium mb-1">رقم الهاتف</h4>
+                                    <p class="text-gray-600">+966 12 345 6789</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 flex items-center justify-center bg-primary/20 rounded-full mt-1">
+                                    <i class="ri-mail-line text-primary"></i>
+                                </div>
+                                <div class="mr-4">
+                                    <h4 class="font-medium mb-1">البريد الإلكتروني</h4>
+                                    <p class="text-gray-600">info@dentalclinic.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التواصل والخريطة -->
+    <section id="contact" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">تواصل معنا</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">نحن هنا للإجابة على جميع استفساراتك وتقديم المساعدة التي تحتاجها</p>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="h-96 w-full bg-cover bg-center" style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png')"></div>
+                
+                <div class="p-8">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="text-center">
+                            <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full mx-auto mb-4">
+                                <i class="ri-map-pin-line text-2xl text-primary"></i>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2">العنوان</h3>
+                            <p class="text-gray-600">شارع الأمير سلطان، حي الخالدية، جدة، المملكة العربية السعودية</p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full mx-auto mb-4">
+                                <i class="ri-phone-line text-2xl text-primary"></i>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2">اتصل بنا</h3>
+                            <p class="text-gray-600">+966 12 345 6789</p>
+                            <p class="text-gray-600">+966 12 345 6790</p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full mx-auto mb-4">
+                                <i class="ri-time-line text-2xl text-primary"></i>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2">ساعات العمل</h3>
+                            <p class="text-gray-600">السبت - الخميس: 9 صباحاً - 9 مساءً</p>
+                            <p class="text-gray-600">الجمعة: مغلق</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- تذييل الصفحة -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="font-['Pacifico'] text-3xl text-white mb-6">
+                        <span>DentalCare</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">نقدم خدمات طب الأسنان المتميزة بأحدث التقنيات وأعلى معايير الجودة لنمنحك ابتسامة صحية وجميلة.</p>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors">
+                            <i class="ri-twitter-x-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors">
+                            <i class="ri-instagram-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors">
+                            <i class="ri-linkedin-fill"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">روابط سريعة</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">الرئيسية</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">خدماتنا</a></li>
+                        <li><a href="#technology" class="text-gray-400 hover:text-white transition-colors">التقنيات</a></li>
+                        <li><a href="#cases" class="text-gray-400 hover:text-white transition-colors">الحالات</a></li>
+                        <li><a href="#team" class="text-gray-400 hover:text-white transition-colors">فريقنا</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">خدماتنا</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">تجميل الأسنان</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">زراعة الأسنان</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">علاج جذور الأسنان</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">تقويم الأسنان</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">طب أسنان الأطفال</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">جراحة الفم والوجه والفكين</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">النشرة الإخبارية</h3>
+                    <p class="text-gray-400 mb-4">اشترك في نشرتنا الإخبارية للحصول على أحدث العروض والنصائح الطبية</p>
+                    <form class="mb-4">
+                        <div class="flex">
+                            <input type="email" placeholder="بريدك الإلكتروني" class="flex-grow px-4 py-2 rounded-r-button focus:outline-none">
+                            <button type="submit" class="bg-primary text-white px-4 py-2 rounded-l-button hover:bg-opacity-90 transition-all whitespace-nowrap">
+                                اشتراك
+                            </button>
+                        </div>
+                    </form>
+                    <p class="text-gray-500 text-sm">بالاشتراك، أنت توافق على سياسة الخصوصية الخاصة بنا</p>
+                </div>
+            </div>
+            
+            <hr class="border-gray-800 mb-8">
+            
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 mb-4 md:mb-0">© 2025 عيادة الأسنان المتميزة. جميع الحقوق محفوظة.</p>
+                <div class="flex space-x-6 space-x-reverse">
+                    <a href="#" class="text-gray-500 hover:text-white transition-colors">سياسة الخصوصية</a>
+                    <a href="#" class="text-gray-500 hover:text-white transition-colors">الشروط والأحكام</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // تفعيل شريط التمرير قبل وبعد
+            const sliders = document.querySelectorAll('.before-after-slider');
+            
+            sliders.forEach(slider => {
+                const handle = slider.querySelector('.slider-handle');
+                const before = slider.querySelector('.slider-before');
+                
+                let isDragging = false;
+                
+                const updateSliderPosition = (x) => {
+                    const sliderRect = slider.getBoundingClientRect();
+                    const newPosition = (x - sliderRect.left) / sliderRect.width;
+                    const clampedPosition = Math.max(0, Math.min(1, newPosition));
+                    
+                    const percentage = clampedPosition * 100;
+                    before.style.width = `${percentage}%`;
+                    handle.style.left = `${percentage}%`;
+                };
+                
+                handle.addEventListener('mousedown', () => {
+                    isDragging = true;
+                });
+                
+                window.addEventListener('mousemove', (e) => {
+                    if (isDragging) {
+                        updateSliderPosition(e.clientX);
+                    }
+                });
+                
+                window.addEventListener('mouseup', () => {
+                    isDragging = false;
+                });
+                
+                // للأجهزة اللمسية
+                handle.addEventListener('touchstart', (e) => {
+                    isDragging = true;
+                    e.preventDefault();
+                });
+                
+                window.addEventListener('touchmove', (e) => {
+                    if (isDragging) {
+                        updateSliderPosition(e.touches[0].clientX);
+                    }
+                });
+                
+                window.addEventListener('touchend', () => {
+                    isDragging = false;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
